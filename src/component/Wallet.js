@@ -1,11 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Wallet = () =>{
-    const balance = useSelector(state => state.balance);
-    return(
-        <h3>Your balance is:{balance}</h3>
-    );
+export class Wallet extends Component{
+    render(){
+        return(
+            <div>
+                <h3 className='balance'>Wallet balance: {this.props.balance}</h3>
+            </div>
+        );  
+    }
 }
 
-export default Wallet;
+export default connect(state => ({balance: state}),null)(Wallet);
