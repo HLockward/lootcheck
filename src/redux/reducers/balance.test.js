@@ -1,11 +1,22 @@
 import * as actionTypes from '../actions/actionTypes';
 import balanceReducer from './balance';
+import balanceReducer2 from './balance';
 
 describe('balanceReducer', ()=> {
-    it('set a balance', () =>{
+    
+    describe('when initializing', () =>{
         const balance = 10;
-        const action = {type: actionTypes.SET_BALANCE, balance};
-        expect(balanceReducer(undefined, action)).toEqual(balance);
+
+        it('set a balance', () =>{
+            const action = {type: actionTypes.SET_BALANCE, balance};
+            expect(balanceReducer(undefined, action)).toEqual(balance);
+        });
+    
+        describe('the re-initializing', () =>{
+            it('reads the balance from cookies', () =>{
+                expect(balanceReducer2(undefined, {})).toEqual(balance);
+            });
+        });
     });
 
     it('deposit in the balance', () =>{
