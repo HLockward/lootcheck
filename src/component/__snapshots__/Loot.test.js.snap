@@ -2,6 +2,6 @@
 
 exports[`Loot renders properly 1`] = `
 <h3>
-  bitcoin
+  Bitcoin balance: 
 </h3>
 `;
