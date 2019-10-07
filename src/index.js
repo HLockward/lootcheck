@@ -6,11 +6,10 @@ import rootReducer from './redux/reducers';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import App from './component/App';
-
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+import './index.css';
 
 render(
-    <Provider store={store}>
+    <Provider store={createStore(rootReducer, applyMiddleware(logger, thunk))}>
         <App />
     </Provider>, 
     document.getElementById('root')
